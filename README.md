@@ -6,7 +6,7 @@
 - Cauã Silva Macedo
 - Diego Dias de Araujo
 - Fábio Gomes da Silva
-- Júlio Valença de Azevedo Júnior
+- Julio Valença de Azevedo Junior
 - Ricardo Augusto Mazzarioli Ribeiro Nunes
 - Tamires Chorense Nunes Garrones
 - Vanessa Byork Ferreira Pinto
