@@ -11,35 +11,50 @@
 - Tamires Chorense Nunes Garrones
 - Vanessa Byork Ferreira Pinto
 
-## 2. Objetivo
+## 2. Tema 
 
-## 3. Planejamento
+Análise preditiva de evasão escolar baseada em fatores acadêmicos e socioeconômicos.
 
-- Criação e organização do repositório:
+## 3. Objetivo
+
+Identificar os principais indicadores que levam à desistência de estudantes, comparando o impacto do desempenho escolar (GPA) em relação a fatores financeiros e psicossociais.
+
+## 4. Planejamento
+
+### Repositório:
+- [x] Criação e organização <br>
       Ricardo Augusto Mazzarioli Ribeiro Nunes
   
-- Definição da base de dados:
+### Definição da base de dados:
+- [x] Escolha da base de dados <br>
       Todos os integrantes
+- [x] Contexto e objetivo da análise <br>
+      Tamires Chorense Nunes Garrones**??**
   
-- Planejamento do projeto:
-      Etapas de extração:
+### Processamento e Análise (ETL):
+- [ ] Definição das tarefas e cronograma
+- [ ] Limpeza e tratamento de dados 
+- [ ] Análise exploratória e geração de estatísticas
 
-- Planejamento do Dashboard:
+### Dashboard e Visualização:
+- [ ] Planejamento do Dashboard 
+- [ ] Criação de gráficos de correlação e distribuição
   
-- Organização do README:
-      Ricardo Augusto Mazzarioli Ribeiro Nunes
-      Tamires Chorense Nunes Garrones
-  
-## 4. Tecnologias
+### Documentação:
+- [x] Organização do README <br>
+Ricardo Augusto Mazzarioli Ribeiro Nunes <br>
+Tamires Chorense Nunes Garrones 
+   
+## 5. Tecnologias Utilizadas:
 - Python
 - Pandas
 - Streamlit
 
-## 5. Estrutura
+## 6. Estrutura
 ```
 projeto/
 ├── data/
-│   ├── base_original.csv
+│   ├── student_dropout_dataset_v3.csv
 │   └── base_tratada.csv
 ├── src/
 │   └── etl.py
