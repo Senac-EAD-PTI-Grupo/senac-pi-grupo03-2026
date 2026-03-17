@@ -17,34 +17,34 @@ Análise preditiva de evasão escolar baseada em fatores acadêmicos e socioecon
 
 ## 3. Objetivo
 
-Identificar os principais indicadores que levam à desistência de estudantes, comparando o impacto do desempenho escolar (GPA) em relação a fatores financeiros e psicossociais.
+Identificar os principais indicadores que levam à desistência de estudantes, comparando o impacto do desempenho escolar (GPA) em relação a fatores comportamentais e sociais.
 
 ## 4. Planejamento
 
-### Repositório:
+### 4.1. Repositório:
 - [x] Criação e organização <br>
       Ricardo Augusto Mazzarioli Ribeiro Nunes
   
-### Definição da base de dados:
-- [x] Escolha da base de dados <br>
+### 4.2. Definição da base de dados:
+- [x] Escolha da base de dados Student Dropout Prediction na plataforma Kaggle <br>
       Todos os integrantes
 - [x] Contexto e objetivo da análise <br>
-      Tamires Chorense Nunes Garrones**??**
+      Tamires Chorense Nunes Garrones
   
-### Processamento e Análise (ETL):
+### 4.3. Processamento e Análise (ETL):
 - [ ] Definição das tarefas e cronograma
 - [ ] Limpeza e tratamento de dados 
 - [ ] Análise exploratória e geração de estatísticas
 
-### Dashboard e Visualização:
+### 4.4. Dashboard e Visualização:
 - [x] Planejamento do Dashboard <br>
-      Julio Valença de Azevedo Junior
-
+      Julio Valença de Azevedo Junior <br>
+      Tamires Chorense Nunes Garrones
 
 - [x] Criação de gráficos de correlação e distribuição <br>
       Julio Valença de Azevedo Junior 
 
-### Documentação:
+### 4.5. Documentação:
 - [x] Organização do README <br>
 Ricardo Augusto Mazzarioli Ribeiro Nunes <br>
 Tamires Chorense Nunes Garrones 
