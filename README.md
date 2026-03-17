@@ -37,14 +37,13 @@ Identificar os principais indicadores que levam à desistência de estudantes, c
 - [ ] Análise exploratória e geração de estatísticas
 
 ### Dashboard e Visualização:
-- [ ] Planejamento do Dashboard 
+- [x] Planejamento do Dashboard <br>
+      Julio Valença de Azevedo Junior
 
+
+- [x] Criação de gráficos de correlação e distribuição <br>
       Julio Valença de Azevedo Junior 
 
-- [ ] Criação de gráficos de correlação e distribuição 
-
-      Julio Valença de Azevedo Junior 
-       
 ### Documentação:
 - [x] Organização do README <br>
 Ricardo Augusto Mazzarioli Ribeiro Nunes <br>
