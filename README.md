@@ -32,9 +32,19 @@ Identificar os principais indicadores que levam à desistência de estudantes, c
       Tamires Chorense Nunes Garrones
   
 ### 4.3. Processamento e Análise (ETL):
-- [ ] Definição das tarefas e cronograma
+<img src="assets/ETL_Flow.png" alt="Fluxo ETL" width="1024">
+
+- [ ] Definição das tarefas e cronograma <br>
+      Todos os integrantes
 - [ ] Limpeza e tratamento de dados 
 - [ ] Análise exploratória e geração de estatísticas
+
+#### 4.3.1. Definição dos Objetivos de Negócio
+#### 4.3.2. Mapeamento das fontes de dados
+#### 4.3.3. Extração dos Dados
+#### 4.3.4. Transformação dos Dados
+#### 4.3.5. Carga dos Dados
+#### 4.3.6. Monitoramento e Revisão
 
 ### 4.4. Dashboard e Visualização:
 - [x] Planejamento do Dashboard <br>
