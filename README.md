@@ -2,21 +2,19 @@
 > **Projeto Integrador: Desenvolvimento Low Code em Ciência de Dados - Grupo 03 | Senac EAD 2026**
 
 ## 📌 1. Visão Geral e Contexto
-A evasão no ensino superior é uma questão social que afeta o capital humano e trava o desenvolvimento de um país a longo prazo. As causas de desistência deixam rastros nos dados (queda de notas, falta de engajamento, entre outros).
-
-Neste projeto, utilizamos a Ciência de Dados para identificar esses padrões. Através de um dataset simulado, construíremos uma estrutura capaz de apontar quais alunos estão em risco de evasão, permitindo que a instituição tome medidas preventivas antes que o abandono aconteça.
+A evasão acadêmica é um problema social relevante, pois compromete a formação de capital humano e limita o desenvolvimento de um país no longo prazo. As causas da desistência deixam indícios nos dados, como queda no desempenho acadêmico e baixo engajamento dos estudantes. Neste projeto, aplicamos técnicas de Ciência de Dados para identificar esses padrões. A partir de um dataset simulado, desenvolvemos uma estrutura analítica capaz de indicar quais alunos apresentam maior risco de evasão, possibilitando que a instituição adote medidas preventivas antes que o abandono ocorra.
 
 
 ## 👥 2. Equipe de Desenvolvimento
 
-- Bianca da Silva
-- Cauã Silva Macedo
-- Diego Dias de Araujo
-- Fábio Gomes da Silva
-- Julio Valença de Azevedo Junior - [GitHub](https://github.com/julio-valenca)
-- Ricardo Augusto Mazzarioli Ribeiro Nunes - [GitHub](https://github.com/ricmazz)
-- Tamires Chorense Nunes Garrones - [GitHub](https://github.com/tamireschorense-dev)
-- Vanessa Byork Ferreira Pinto
+- [Bianca da Silva](https://github.com/bsilva2790-ux)
+- [Cauã Silva Macedo](https://github.com/macedoz)
+- [Diego Dias de Araujo]()
+- [Fábio Gomes da Silva](https://github.com/fabiogomes95)
+- [Julio Valença de Azevedo Junior](https://github.com/julio-valenca)
+- [Ricardo Augusto Mazzarioli Ribeiro Nunes](https://github.com/ricmazz)
+- [Tamires Chorense Nunes Garrones](https://github.com/tamireschorense-dev)
+- [Vanessa Byork Ferreira Pinto](https://github.com/Byorks)
 
 
 ## 🎯 3. Objetivo do Projeto
@@ -44,124 +42,46 @@ O objetivo é desenvolver um script de processamento de dados para o dataset Stu
 - Visualização: Dashboard em Streamlit com filtros interativos para explorar as taxas de evasão por departamento e idade.
 
 ## 📅 4. Planejamento e Organização
-O cronograma foi dividido em fases para garantir a entrega do pipeline completo:
 
-#### 4.1. Cronograma e Atribuições de Equipa
+### 4.1. Cronograma e Atribuições de Equipe
+O cronograma foi dividido em fases para garantir a entrega do pipeline completo:
 
 | Categoria | Atividade | Responsáveis | Status |
 | :--- | :--- | :--- | :---: |
-| **Gestão** | Criação e organização do Repositório | Ricardo A. M. R. Nunes | [x] |
-| **Dados** | Escolha da base de dados [Student Dropout Prediction](https://www.kaggle.com/datasets/meharshanali/student-dropout-prediction-dataset/data) | Todos os integrantes | [x] |
-| **Visão geral** | Contextualização e objetivo | Tamires Chorense Nunes Garrones | [x] |
-| **Estratégia** | 4.3.1. Definição dos Objetivos de Negócio | Todos os participantes | [x] |
-| **Engenharia** | 4.3.2. Mapeamento das fontes de dados | Ricardo, Tamires, Vanessa | [x] |
-| **Coleta** | 4.3.3. Extração (Leitura do Dataset) | Bianca da Silva, Fábio Gomes | [x] |
-| **Tratamento** | 4.3.4. Transformação (Limpeza e Cálculos) | Ricardo Augusto, Fábio Gomes | [/] |
-| **Integração** | 4.3.5. Carga (Conexão com Dashboard) | Ricardo Augusto | [/] |
-| **Qualidade** | 4.3.6. Monitoramento e Revisão | Cauã Silva Macedo | [ ] |
-| **Visualização** | 4.4. Planeamento e Criação do Dashboard | Diego, Julio, Tamires | [ ] |
-| **Visualização** | 4.4.1. Gráficos de correlação e distribuição | Julio Valença | [ ] |
-| **Docs** | 4.5. Organização do README e Documentação | Ricardo, Tamires | [/] |
+| **Gestão** | Criação e organização do Repositório | Ricardo | ✅ |
+| **Dados** | Escolha da base [Student Dropout Prediction](https://www.kaggle.com/datasets/meharshanali/student-dropout-prediction-dataset/data) | Todos os integrantes | ✅ |
+| **Visão geral** | Contextualização | Tamires | ✅ |
+| **Estratégia** | Definição dos Objetivos  | Todos os participantes | ✅ |
+| **Engenharia** | Mapeamento dos dados | Ricardo, Tamires, Vanessa | ✅ |
+| **Coleta** | Leitura do dataset e Extração dos dados | Bianca, Fábio | ⏳ |
+| **Tratamento** | Transformação (Limpeza e Cálculos) | Ricardo, Fábio, Vanessa | ⏳ |
+| **Integração** | Carga (Conexão com Dashboard) | Bianca, Cauã, Ricardo | ⏳ |
+| **Qualidade** | Monitoramento e Revisão | Cauã, Vanessa | 📅 |
+| **Design BI** | Planeamento e Criação do Dashboard | Diego, Julio, Tamires | 📅 |
+| **Análise Visual** | Gráficos de correlação e distribuição | Cauã, Diego, Julio | 📅 |
+| **Docs** | Organização do README e Documentação | Ricardo, Tamires | ⏳ |
+ * Legenda: ✅ Concluído | ⏳ Em andamento | 📅 Planejado
 
+### 4.2. Detalhamento das Etapas Técnicas
 
-### 4.2. Definição da base de dados
-- [x] Escolha da base de dados [Student Dropout Prediction](https://www.kaggle.com/datasets/meharshanali/student-dropout-prediction-dataset/data)
-  * Responsáveis: Todos os integrantes
-- [x] Visão geral e Contexto
-  * Responsável: Tamires Chorense Nunes Garrones
-- [x] Objetivo do projeto
-* Responsáveis: Todos os integrantes
+Para garantir a clareza do fluxo de trabalho, definimos os seguintes escopos:
 
-### 4.3. Processamento e Análise (ETL)
-<img src="assets/ETL_Flow.png" alt="Fluxo ETL" width="1024">
+- Tratamento: Limpeza de valores nulos, normalização de notas e conversão de variáveis categóricas (como renda) para análise estatística.
 
-- [x] Definição das tarefas e cronograma
- * Responsáveis: Todos os integrantes
+- Integração: Automatização do fluxo de dados tratados para o ambiente do Streamlit, garantindo a atualização em tempo real do Dashboard.
 
-#### 4.3.1. Objetivos de Negócio
-- Todos os Participantes
+- Qualidade: Revisão técnica do código Python e validação da integridade dos dados transformados antes da exibição final.
 
-#### 4.3.2. Mapeamento das fontes de dados
-- Ricardo Augusto, Tamires Chorense, Vanessa Byork
-
-#### 4.3.3. Extração dos Dados
-- Bianca da Silva, Fábio Gomes da Silva
-
-#### 4.3.4. Transformação dos Dados
-- Ricardo Augusto, Fábio Gomes da Silva
-
-#### 4.3.5. Carga dos Dados
-- Ricardo Augusto
-
-#### 4.3.6. Monitoramento e Revisão
-- Cauã Silva Macedo
-
-### 4.4. Dashboard e Visualização
-- [x] Planejamento do Dashboard: Diego Dias, Julio Valença, Tamires Chorense
-- [x] Criação de gráficos: Julio Valença de Azevedo Junior 
-
-### 4.5. Documentação
-- [x] Organização do README: Ricardo Augusto, Tamires Chorense
-
-
-### 4.1. Repositório:
-- [x] Criação e organização <br>
-      Ricardo Augusto Mazzarioli Ribeiro Nunes
-  
-### 4.2. Definição da base de dados:
-- [x] Escolha da base de dados Student Dropout Prediction na plataforma Kaggle <br>
-      Todos os integrantes
-- [x] Contexto e objetivo da análise <br>
-      Tamires Chorense Nunes Garrones
-  
-### 4.3. Processamento e Análise (ETL):
-<img src="assets/ETL_Flow.png" alt="Fluxo ETL" width="1024">
-
-- [x] Definição das tarefas e cronograma <br>
-      Todos os integrantes
-
-#### 4.3.1. Definição dos Objetivos de Negócio
-- Todos os Participantes
-
-#### 4.3.2. Mapeamento das fontes de dados
-- Ricardo Augusto Mazzarioli Ribeiro Nunes
-- Tamires Chorense Nunes Garrones
-- Vanessa Byork Ferreira Pinto
-
-#### 4.3.3. Extração dos Dados
-- Bianca da Silva
-- Fábio Gomes da Silva
-
-#### 4.3.4. Transformação dos Dados
-- Ricardo Augusto Mazzarioli Ribeiro Nunes
-- Fábio Gomes da Silva
-
-#### 4.3.5. Carga dos Dados
-- Ricardo Augusto Mazzarioli Ribeiro Nunes
-
-#### 4.3.6. Monitoramento e Revisão
-- Cauã Silva Macedo
-
-### 4.4. Dashboard e Visualização:
-- [x] Planejamento do Dashboard <br>
-      Diego Dias de Araujo <br>
-      Julio Valença de Azevedo Junior <br>
-      Tamires Chorense Nunes Garrones <br>
-
-- [x] Criação de gráficos de correlação e distribuição <br>
-      Julio Valença de Azevedo Junior 
-
-### 4.5. Documentação:
-- [x] Organização do README <br>
-Ricardo Augusto Mazzarioli Ribeiro Nunes <br>
-Tamires Chorense Nunes Garrones 
+- Análise Visual: Desenvolvimento de gráficos de correlação e mapas de calor para identificar os principais fatores de evasão acadêmica.
    
-## 5. Tecnologias Utilizadas:
-- Python
-- Pandas
-- Streamlit
+## 🛠️ 5. Tecnologias Utilizadas:
+Para a execução deste projeto, foram selecionadas as seguintes ferramentas:
 
-## 6. Estrutura
+* **Linguagem:** ![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54)
+* **Manipulação de Dados:** ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=flat&logo=pandas&logoColor=white)
+* **Dashboard:** ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamlit&logoColor=white)
+  
+## 📁 6. Estrutura
 ```
 projeto/
 ├── data/
