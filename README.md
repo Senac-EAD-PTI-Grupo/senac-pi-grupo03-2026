@@ -9,7 +9,7 @@ A evasão acadêmica é um problema social relevante, pois compromete a formaç�
 
 - [Bianca da Silva](https://github.com/bsilva2790-ux)
 - [Cauã Silva Macedo](https://github.com/macedoz)
-- [Diego Dias de Araujo]()
+- [Diego Dias de Araujo](https://github.com/SpectroCodeTech)
 - [Fábio Gomes da Silva](https://github.com/fabiogomes95)
 - [Julio Valença de Azevedo Junior](https://github.com/julio-valenca)
 - [Ricardo Augusto Mazzarioli Ribeiro Nunes](https://github.com/ricmazz)
