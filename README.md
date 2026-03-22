@@ -57,7 +57,7 @@ O cronograma foi dividido em fases para garantir a entrega do pipeline completo:
 | **Tratamento** | Transformação (Limpeza e Cálculos) | Ricardo, Fábio, Vanessa | ⏳ |
 | **Integração** | Carga (Conexão com Dashboard) | Bianca, Cauã, Ricardo | ⏳ |
 | **Qualidade** | Monitoramento e Revisão | Cauã, Vanessa | 📅 |
-| **Design BI** | Planeamento e Criação do Dashboard | Diego, Julio, Tamires | 📅 |
+| **Design BI** | Planejamento e Criação do Dashboard | Diego, Julio, Tamires, Vanessa | 📅 |
 | **Análise Visual** | Gráficos de correlação e distribuição | Cauã, Diego, Julio | 📅 |
 | **Docs** | Organização do README e Documentação | Ricardo, Tamires | ⏳ |
  * Legenda: ✅ Concluído | ⏳ Em andamento | 📅 Planejado
