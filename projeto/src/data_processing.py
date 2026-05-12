@@ -1,24 +1,31 @@
 import pandas as pd
+from pathlib import Path
 
-# Leitura inicial do dataset
-df = pd.read_csv('projeto/data/student_dropout_dataset_v3.csv')
+DATA_DIR = Path(__file__).resolve().parents[1] / "data"
+INPUT_FILE = DATA_DIR / "student_dropout_dataset_v3.csv"
+OUTPUT_FILE = DATA_DIR / "base_tratada.csv"
 
-print("Verificando a quantidade de valores vazios por coluna:")
-print(df.isnull().sum()) 
+df = pd.read_csv(INPUT_FILE)
 
-# TRATAMENTO DOS DADOS
+print("Valores nulos por coluna (antes do tratamento):")
+print(df.isnull().sum())
 
-# 1. LIMPEZA
-# O dataset possui alunos sem dados, como Family_Income, Study_Hours_per_Day e Stress_Index
-# Vamos preencher esses vazios com a mediana de suas respectivas colunas para não distorcer a análise:
-colunas_para_preencher = ['Family_Income', 'Study_Hours_per_Day', 'Stress_Index']
-for coluna in colunas_para_preencher: # linha de repetição que vai procurar as colunas vazias em 
-    df[coluna] = df[coluna].fillna(df[coluna].median()) #o "fillna" procura as colunas vazias e preenche com a "median"
+# 1. LIMPEZA — preenche nulos numéricos com a mediana
+colunas_numericas = ['Family_Income', 'Study_Hours_per_Day', 'Stress_Index']
+for coluna in colunas_numericas:
+    df[coluna] = df[coluna].fillna(df[coluna].median())
 
-# 2. CONVERSÃO DE VARIÁVEIS CATEGÓRICAS
-# Convertendo textos em números para criação de gráficos posteriores 
-# Convertendo respostas 'Yes'/'No' para 1 e 0:
+# Preenche nulos categóricos com a moda
+df['Parental_Education'] = df['Parental_Education'].fillna(df['Parental_Education'].mode()[0])
+
+# 2. CONVERSÃO DE VARIÁVEIS CATEGÓRICAS — Yes/No → 1/0
 mapeamento_yes_no = {'Yes': 1, 'No': 0}
 df['Internet_Access'] = df['Internet_Access'].map(mapeamento_yes_no) # convertendo a coluna de acesso a internet
 df['Part_Time_Job'] = df['Part_Time_Job'].map(mapeamento_yes_no) # convertendo a coluna de trabalho meio periodo
 df['Scholarship'] = df['Scholarship'].map(mapeamento_yes_no) # convertendo a coluna de bolsa de estudos
+
+print("\nValores nulos por coluna (após tratamento):")
+print(df.isnull().sum())
+print(f"\nBase tratada salva em: {OUTPUT_FILE}")
+
+df.to_csv(OUTPUT_FILE, index=False)

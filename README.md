@@ -54,12 +54,12 @@ O cronograma foi dividido em fases para garantir a entrega do pipeline completo:
 | **Estratégia** | Definição dos Objetivos  | Todos os participantes | ✅ |
 | **Engenharia** | Mapeamento dos dados | Ricardo, Tamires, Vanessa | ✅ |
 | **Coleta** | Leitura do dataset e Extração dos dados | Bianca, Fábio | ⏳ |
-| **Tratamento** | Transformação (Limpeza e Cálculos) | Ricardo, Fábio, Vanessa | ⏳ |
-| **Integração** | Carga (Conexão com Dashboard) | Bianca, Cauã, Ricardo | ⏳ |
+| **Tratamento** | Transformação (Limpeza e Cálculos) | Ricardo, Fábio, Vanessa | ✅ |
+| **Integração** | Carga (Conexão com Dashboard) | Bianca, Cauã, Ricardo | ✅ |
 | **Qualidade** | Monitoramento e Revisão | Cauã, Vanessa | 📅 |
 | **Design BI** | Planejamento e Criação do Dashboard | Diego, Julio, Tamires, Vanessa | 📅 |
 | **Análise Visual** | Gráficos de correlação e distribuição | Cauã, Diego, Julio | 📅 |
-| **Docs** | Organização do README e Documentação | Ricardo, Tamires | ⏳ |
+| **Docs** | Organização do README e Documentação | Ricardo, Tamires | ✅ |
  * Legenda: ✅ Concluído | ⏳ Em andamento | 📅 Planejado
 
 ### 4.2. Detalhamento das Etapas Técnicas
@@ -88,7 +88,7 @@ projeto/
 │   ├── student_dropout_dataset_v3.csv
 │   └── base_tratada.csv
 ├── src/
-│   └── etl.py
+│   └── data_processing.py
 └── app/
     └── dashboard.py
 ```
