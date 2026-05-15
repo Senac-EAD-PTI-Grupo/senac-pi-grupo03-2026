@@ -64,6 +64,69 @@ st.bar_chart(taxa_por_depto.set_index("Department")["Taxa"])
 
 st.divider()
 
+# ── Engajamento e Evasão ───────────────────────────────────────────────────────
+st.subheader("Engajamento e Evasão — Média de Presença")
+
+presenca_por_status = (
+    df_filtrado.groupby("Dropout")["Attendance_Rate"]
+    .mean()
+    .reset_index()
+    .assign(Status=lambda x: x["Dropout"].map({0: "Permaneceram", 1: "Evadiram"}))
+    .set_index("Status")["Attendance_Rate"]
+    .round(1)
+)
+
+col_eng1, col_eng2, col_eng3 = st.columns(3)
+if not presenca_por_status.empty:
+    perm = presenca_por_status.get("Permaneceram", None)
+    evad = presenca_por_status.get("Evadiram", None)
+    if perm is not None:
+        col_eng1.metric("Presença média — Permaneceram", f"{perm:.1f}%")
+    if evad is not None:
+        col_eng2.metric("Presença média — Evadiram", f"{evad:.1f}%")
+    if perm is not None and evad is not None:
+        col_eng3.metric("Diferença", f"{perm - evad:.1f} p.p.")
+
+st.markdown("**Comparação de presença média: permaneceram vs evadiram**")
+st.bar_chart(presenca_por_status)
+
+st.divider()
+
+# ── Análise Temporal — Evasão por Semestre ────────────────────────────────────
+st.subheader("Perfil Temporal — Abandono por Semestre")
+
+ORDEM_SEMESTRE = ["Year 1", "Year 2", "Year 3", "Year 4"]
+semestres_disponiveis = [s for s in ORDEM_SEMESTRE if s in df_filtrado["Semester"].unique()]
+
+evasao_por_semestre = (
+    df_filtrado[df_filtrado["Dropout"] == 1]
+    .groupby("Semester")
+    .size()
+    .reindex(semestres_disponiveis, fill_value=0)
+    .rename_axis("Semestre")
+    .rename("Evasões")
+)
+
+taxa_por_semestre = (
+    df_filtrado.groupby("Semester")["Dropout"]
+    .mean()
+    .reindex(semestres_disponiveis, fill_value=0)
+    .mul(100)
+    .round(1)
+    .rename_axis("Semestre")
+    .rename("Taxa de Evasão (%)")
+)
+
+col_sem1, col_sem2 = st.columns(2)
+with col_sem1:
+    st.markdown("**Quantidade de evasões por ano/semestre:**")
+    st.bar_chart(evasao_por_semestre)
+with col_sem2:
+    st.markdown("**Taxa de evasão (%) por ano/semestre:**")
+    st.bar_chart(taxa_por_semestre)
+
+st.divider()
+
 # ── Análise Visual (Julio Valença) ────────────────────────────────────────────
 st.subheader("Análise Visual — Gráficos de Correlação e Distribuição")
 st.caption("Desenvolvido por: Julio Valença")
