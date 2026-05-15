@@ -64,18 +64,44 @@ st.bar_chart(taxa_por_depto.set_index("Department")["Taxa"])
 
 st.divider()
 
-# ── Espaço reservado para equipe de Análise Visual (Cauã, Diego, Julio) ───────
+# ── Análise Visual (Julio Valença) ────────────────────────────────────────────
 st.subheader("Análise Visual — Gráficos de Correlação e Distribuição")
-st.info(
-    "Este espaço está reservado para os gráficos desenvolvidos pela equipe de Análise Visual "
-    "(Cauã, Diego, Julio): correlações entre variáveis, mapas de calor e distribuições."
-)
+st.caption("Desenvolvido por: Julio Valença")
+
+estresse_alto = df_filtrado[df_filtrado["Stress_Index"] > 6]
+cgpa_medio_estresse = estresse_alto["CGPA"].mean()
+estresse_trabalha = df_filtrado.groupby("Part_Time_Job")["Stress_Index"].mean().reset_index()
+
+col_av1, col_av2 = st.columns(2)
+
+with col_av1:
+    st.metric("Média de CGPA (Alunos com Estresse > 6)", f"{cgpa_medio_estresse:.2f}" if not estresse_alto.empty else "—")
+    st.markdown("**Distribuição de Notas (CGPA) por Nível de Estresse:**")
+    st.scatter_chart(data=df_filtrado, x="Stress_Index", y="CGPA", color="Dropout")
+
+with col_av2:
+    st.markdown("**Média de Estresse: Trabalha Meio Período (1) vs Não Trabalha (0):**")
+    st.bar_chart(data=estresse_trabalha.set_index("Part_Time_Job")["Stress_Index"])
 
 st.divider()
 
-# ── Espaço reservado para Design BI (Diego, Julio, Tamires, Vanessa) ──────────
-st.subheader("Design BI — Painel Avançado")
-st.info(
-    "Este espaço está reservado para o painel desenvolvido pela equipe de Design BI "
-    "(Diego, Julio, Tamires, Vanessa): visualizações interativas e layout final do dashboard."
+# ── Design BI (Julio Valença) ─────────────────────────────────────────────────
+st.subheader("Design BI — Painel Avançado de Idades")
+st.caption("Desenvolvido por: Julio Valença")
+
+top_10_idades = (
+    df_filtrado.groupby("Age")["Dropout"]
+    .mean()
+    .reset_index()
+    .sort_values(by="Dropout", ascending=False)
+    .head(10)
 )
+top_10_idades["Taxa_Evasao_%"] = (top_10_idades["Dropout"] * 100).round(1)
+
+st.markdown("**Top 10 Idades com Maior Taxa Proporcional de Evasão:**")
+st.dataframe(
+    top_10_idades[["Age", "Taxa_Evasao_%"]],
+    use_container_width=True,
+    hide_index=True,
+)
+st.bar_chart(data=top_10_idades.set_index("Age")["Taxa_Evasao_%"])
