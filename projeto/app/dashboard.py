@@ -168,3 +168,63 @@ st.dataframe(
     hide_index=True,
 )
 st.bar_chart(data=top_10_idades.set_index("Age")["Taxa_Evasao_%"])
+
+# ── Análise de Impacto do Trabalho (Vanessa Byork) ────────────────────────────
+st.subheader("Impacto do Trabalho — Estresse e Evasão")
+st.caption("Desenvolvido por: Vanessa Byork")
+
+st.markdown("**Qual a diferença no nível de estresse entre alunos que trabalham e os que não trabalham?**")
+
+# Métricas de Estresse por Trabalho
+estresse_trabalho = (
+    df_filtrado.groupby("Part_Time_Job")["Stress_Index"]
+    .mean()
+    .rename(index={0: "Não Trabalha", 1: "Trabalha"})
+)
+
+col_vb1, col_vb2, col_vb3 = st.columns(3)
+if not estresse_trabalho.empty:
+    nt = estresse_trabalho.get("Não Trabalha", None)
+    tr = estresse_trabalho.get("Trabalha", None)
+    
+    if nt is not None:
+        col_vb1.metric("Média de Estresse — Não Trabalha", f"{nt:.2f}")
+    if tr is not None:
+        col_vb2.metric("Média de Estresse — Trabalha", f"{tr:.2f}")
+    if nt is not None and tr is not None:
+        col_vb3.metric("Diferença", f"{abs(tr - nt):.2f}")
+
+st.info("💡 **Conclusão:** Não foi observada diferença significativa no índice médio de estresse entre alunos que trabalham e os que não trabalham.")
+
+st.markdown("**Perfil dos Alunos: Proporção de quem trabalha e relação com o Estresse**")
+
+# Criando proporção de quem trabalha entre quem evadiu vs permaneceu
+trab_evasao = (
+    df_filtrado.groupby("Dropout")["Part_Time_Job"]
+    .mean()
+    .mul(100)
+    .rename(index={0: "Permaneceram", 1: "Evadiram"})
+)
+
+estresse_evasao = (
+    df_filtrado.groupby("Dropout")["Stress_Index"]
+    .mean()
+    .rename(index={0: "Permaneceram", 1: "Evadiram"})
+)
+
+col_vb_charts1, col_vb_charts2 = st.columns(2)
+
+with col_vb_charts1:
+    st.markdown("**% de Alunos que Trabalham**")
+    st.bar_chart(trab_evasao)
+    
+with col_vb_charts2:
+    st.markdown("**Média de Estresse**")
+    st.bar_chart(estresse_evasao)
+
+st.info("💡 **Conclusão:** A maioria dos desistentes não trabalha (cerca de 56%). Os percentuais de quem trabalha são próximos entre os dois grupos, embora os desistentes apresentem uma proporção ligeiramente maior.")
+
+# Calculando a diferença exata de estresse para exibir no alerta
+if not estresse_evasao.empty and "Evadiram" in estresse_evasao and "Permaneceram" in estresse_evasao:
+    dif_estresse = estresse_evasao["Evadiram"] - estresse_evasao["Permaneceram"]
+    st.warning(f"⚠️ **Atenção:** Os alunos desistentes apresentam uma média de estresse {dif_estresse:.2f} pontos maior do que os alunos remanescentes. Essa diferença observada pode indicar que o estresse emocional possui relação com uma possível evasão do aluno.")
