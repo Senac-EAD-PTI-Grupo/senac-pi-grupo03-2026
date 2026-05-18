@@ -398,7 +398,7 @@ fig_rosca_status.update_layout(
 st.plotly_chart(fig_rosca_status, width="stretch")
 
 st.info(
-    f"O panorama geral mostra que a taxa de escape acadêmica no cenário filtrado é de {formatar_percentual(taxa_geral)}. Os indicadores ilustrados demonstram que fatores como desempenho acadêmico, frequência, estresse, renda familiar e condições de estudo possuem relação direta com a permanência dos alunos na instituição. A partir dos filtros interativos e das comparações estatísticas, é possível identificar perfis com maior tendência à evasão, contribuindo para ações preventivas e estratégias de acompanhamento estudantil mais eficientes."
+    f"Conclusão: Nos filtros selecionados, {formatar_percentual(taxa_geral)} dos alunos evadiram. "
 )
 
 st.divider()
@@ -476,11 +476,12 @@ with bar_col:
 if pd.notna(presenca_permaneceu) and pd.notna(presenca_evadiu):
     if presenca_evadiu < presenca_permaneceu:
         st.info(
-            f"Os dados mostram que a frequência acadêmica apresenta grande relação com a permanência dos estudantes no ensino superior. Os alunos que permaneceram apresentaram média de presença de {formatar_percentual(presenca_permaneceu)}, enquanto os alunos que evadiram registraram média de {formatar_percentual(presenca_evadiu)}. Essa diferença reforça a hipótese de que baixos índices de presença podem estar associados à redução do engajamento acadêmico, dificuldades de adaptação e maior risco de abandono do cursoOs dados mostram que a frequência acadêmica apresenta grande relação com a permanência dos estudantes no ensino superior. Os alunos que permaneceram apresentaram média de presença de {formatar_percentual(presenca_permaneceu)}, enquanto os alunos que evadiram registraram média de {formatar_percentual(presenca_evadiu)}. Essa diferença reforça a hipótese de que baixos índices de presença podem estar associados à redução do engajamento acadêmico, dificuldades de adaptação e maior risco de abandono do curso."
+            "Conclusão: os alunos que evadiram apresentaram presença média menor, "
+            "sugerindo que frequência pode funcionar como indicador de alerta."
         )
     else:
         st.info(
-           f"No trecho analisado, não foi identificada diferença significativa entre a média de presença dos alunos que permaneceram e daqueles que evadiram. Isso mostra que outros fatores podem ter exercido maior influência sobre a evasão acadêmica neste cenário específico."
+            "Conclusão: neste filtro, a presença média dos evadidos não ficou abaixo da presença dos que permaneceram."
         )
 
 st.divider()
@@ -562,9 +563,11 @@ if not top_idades.empty and not taxa_por_ano.empty:
     taxa_por_ano_ranking = taxa_por_ano.sort_values("Taxa de Evasão (%)", ascending=False)
     ano_critico = taxa_por_ano_ranking.iloc[0]["Ano"]
     taxa_ano_critico = taxa_por_ano_ranking.iloc[0]["Taxa de Evasão (%)"]
-#2_Faixa_Etaria_Conclusao
+
     st.info(
-        f"No trecho analisado, não foi identificada diferença significativa entre a média de presença dos alunos que permaneceram e daqueles que evadiram. Isso mostra que outros fatores podem ter exercido maior influência sobre a evasão acadêmica neste cenário específico."
+        f"Conclusão: Nos filtros selecionados, a idade com maior taxa de evasão é {idade_critica} anos, "
+        f"com {formatar_percentual(taxa_idade_critica)}. O ano com maior taxa de evasão é {ano_critico}, "
+        f"com {formatar_percentual(taxa_ano_critico)}."
     )
 
 st.divider()
@@ -642,9 +645,10 @@ estresse_permaneceu = media_estresse_status.get("Permaneceram", pd.NA)
 
 if pd.notna(cgpa_evadiu) and pd.notna(cgpa_permaneceu) and pd.notna(estresse_evadiu) and pd.notna(estresse_permaneceu):
     st.info(
-        #Estresse e desempenho
-        f"Os dados evideciam que alunos que saíram atingiram desempenho acadêmico inferior e níveis de estresse mais elevados em comparação aos que permaneceram. O CGPA médio dos alunos evadidos foi de {formatar_decimal(cgpa_evadiu,2)}, enquanto os estudantes que permaneceram registraram média superior. Em relação ao estresse, os alunos evadidos apresentaram média de {formatar_decimal(estresse_evadiu,2)}, evidenciando possível impacto emocional e acadêmico no processo de permanência universitária. Esses dados validam a importância de iniciativas voltadas ao apoio psicológico e ao acompanhamento do desempenho estudantil."
-
+        f"Conclusão: Nos filtros selecionados, alunos evadidos têm CGPA médio de {formatar_decimal(cgpa_evadiu, 2)}, "
+        f"contra {formatar_decimal(cgpa_permaneceu, 2)} dos que permaneceram. "
+        f"O estresse médio dos evadidos é {formatar_decimal(estresse_evadiu, 2)}, "
+        f"contra {formatar_decimal(estresse_permaneceu, 2)} dos que permaneceram."
     )
 
 st.divider()
@@ -714,8 +718,9 @@ if not taxa_evasao_trabalho.empty and not estresse_por_trabalho.empty:
     taxa_trabalho_mais_evasao = taxa_evasao_trabalho.iloc[0]["Taxa de Evasão (%)"]
 
     st.info(
-        #TRABALHO MEIO PERIODO
-        f"A análise relacionada ao trabalho de meio período evidencia que o grupo '{trabalho_mais_evasao}' mostrou a maior taxa de evasão, atingindo {formatar_percentual(taxa_trabalho_mais_evasao)}. Os resultados sugerem que a necessidade de conciliar atividades profissionais e acadêmicas pode influenciar diretamente o desempenho, os níveis de estresse e a permanência dos estudantes no curso, especialmente em contextos de maior carga horária ou dificuldade financeira."
+        f"Conclusão: Nos filtros selecionados, o grupo com maior taxa de evasão é dos que '{trabalho_mais_evasao}', "
+        f"com {formatar_percentual(taxa_trabalho_mais_evasao)}. "
+        "O boxplot ajuda a verificar se esse resultado também se relaciona com maior dispersão ou elevação do estresse."
     )
 
 st.divider()
@@ -833,7 +838,8 @@ if not taxa_por_renda.empty:
     taxa_renda_critica = taxa_por_renda.iloc[0]["Taxa de Evasão (%)"]
 
     st.info(
-        f"Os indicadores socioeconômicos analisados evidencia que a faixa de renda '{faixa_renda_critica}' revelou a maior taxa de evasão, registrando {formatar_percentual(taxa_renda_critica)}. Além disso, fatores como acesso à bolsa de estudos e nível de escolaridade dos pais também demonstraram influência sobre a permanência acadêmica. Os resultados evidenciam que condições socioeconômicas podem impactar diretamente a continuidade dos estudos e o acesso a melhores oportunidades educacionais."
+        f"Conclusão: Nos filtros selecionados, a faixa de renda com maior taxa de evasão é "
+        f"{faixa_renda_critica}, com {formatar_percentual(taxa_renda_critica)}. "
     )
 
 st.divider()
@@ -860,7 +866,10 @@ if not taxa_por_departamento.empty:
     departamento_critico = taxa_por_departamento.iloc[0]
 
     st.info(
-        f"Entre os departamentos analisados, {departamento_critico['Departamento']} apresentou a maior taxa de evasão, alcançando {formatar_percentual(departamento_critico['Taxa de Evasão (%)'])}. Esse comportamento pode estar relacionado a fatores específicos da área, como nível de exigência acadêmica, adaptação curricular ou perfil dos estudantes. Os resultados reforçam a importância de estratégias direcionadas para acompanhamento e retenção dos alunos nesse departamento."
+        f"Conclusão: o departamento com maior taxa de evasão nos filtros selecionados é "
+        f"{departamento_critico['Departamento']}, com "
+        f"{formatar_percentual(departamento_critico['Taxa de Evasão (%)'])}. "
+        "Esse resultado não deve ser lido isoladamente, pois pode estar relacionado a presença, desempenho, estresse ou fatores socioeconômicos."
     )
 
 st.divider()
@@ -964,7 +973,8 @@ if not correlacao_dropout.empty:
     valor_correlacao = correlacao_dropout.iloc[0]["Correlação com evasão"]
 
     st.info(
-        f"A variável '{variavel_mais_associada}' apresentou a maior associação estatística com a evasão, registrando correlação de {formatar_decimal(valor_correlacao,3)}. Embora a correlação não represente causalidade, o resultado demonstra que essa variável possui forte relação com o comportamento de evasão observado na base analisada. Dessa forma, ela pode ser considerada um importante indicador para estudos preditivos e monitoramento acadêmico."
+        f"Conclusão: Nos filtros selecionados, a variável com maior correlação absoluta com a evasão é "
+        f"{variavel_mais_associada}, com correlação de {formatar_decimal(valor_correlacao, 3)}. "
            )
 
 st.divider()
@@ -1031,7 +1041,9 @@ if not bolhas_departamento.empty:
     ).iloc[0]
 
     st.info(
-        f"A análise agregada dos departamentos demonstra que {departamento_maior_evasao['Departamento']} apresentou a maior taxa de evasão, com {formatar_percentual(departamento_maior_evasao['Taxa de Evasão (%)'])}. Observando conjuntamente os indicadores de desempenho acadêmico, estresse e frequência, é possível perceber que departamentos com maiores níveis de estresse e menor rendimento tendem a concentrar índices mais elevados de evasão. Essa visualização facilita a identificação de áreas que demandam maior atenção institucional."
+        f"Conclusão: No gráfico de bolhas, o tamanho representa a taxa de evasão. "
+        f"O departamento com maior taxa no recorte atual é {departamento_maior_evasao['Departamento']}, "
+        f"com {formatar_percentual(departamento_maior_evasao['Taxa de Evasão (%)'])}. "
     )
 
 st.divider()
