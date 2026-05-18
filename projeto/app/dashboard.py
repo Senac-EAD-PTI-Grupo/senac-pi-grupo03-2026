@@ -476,11 +476,11 @@ with bar_col:
 if pd.notna(presenca_permaneceu) and pd.notna(presenca_evadiu):
     if presenca_evadiu < presenca_permaneceu:
         st.info(
-            f"Os dados mostram que a frequência acadêmica apresenta grande relação com a permanência dos estudantes no ensino superior. Os alunos que permaneceram apresentaram média de presença de {formatar_percentual(presenca_permaneceu)}, enquanto os alunos que evadiram registraram média de {formatar_percentual(presenca_evadiu)}. Essa diferença reforça a hipótese de que baixos índices de presença podem estar associados à redução do engajamento acadêmico, dificuldades de adaptação e maior risco de abandono do cursoOs dados mostram que a frequência acadêmica apresenta grande relação com a permanência dos estudantes no ensino superior. Os alunos que permaneceram apresentaram média de presença de {formatar_percentual(presenca_permaneceu)}, enquanto os alunos que evadiram registraram média de {formatar_percentual(presenca_evadiu)}. Essa diferença reforça a hipótese de que baixos índices de presença podem estar associados à redução do engajamento acadêmico, dificuldades de adaptação e maior risco de abandono do curso."
+            f"Os dados mostram que a frequência acadêmica apresenta grande relação com a permanência dos estudantes no ensino superior. Os alunos que permaneceram apresentaram média de presença de {formatar_percentual(presenca_permaneceu)}, enquanto os alunos que evadiram registraram média de {formatar_percentual(presenca_evadiu)}. Essa diferença reforça a hipótese de que baixos índices de presença podem estar associados à redução do engajamento acadêmico, dificuldades de adaptação e maior risco de abandono do curso. Os dados mostram que a frequência acadêmica apresenta grande relação com a permanência dos estudantes no ensino superior. Os alunos que permaneceram apresentaram média de presença de {formatar_percentual(presenca_permaneceu)}, enquanto os alunos que evadiram registraram média de {formatar_percentual(presenca_evadiu)}. Essa diferença reforça a hipótese de que baixos índices de presença podem estar associados à redução do engajamento acadêmico, dificuldades de adaptação e maior risco de abandono do curso."
         )
     else:
         st.info(
-           f"No trecho analisado, não foi identificada diferença significativa entre a média de presença dos alunos que permaneceram e daqueles que evadiram. Isso mostra que outros fatores podem ter exercido maior influência sobre a evasão acadêmica neste cenário específico."
+           "No trecho analisado, não foi identificada diferença significativa entre a média de presença dos alunos que permaneceram e daqueles que evadiram. Isso mostra que outros fatores podem ter exercido maior influência sobre a evasão acadêmica neste cenário específico."
         )
 
 st.divider()
@@ -564,7 +564,7 @@ if not top_idades.empty and not taxa_por_ano.empty:
     taxa_ano_critico = taxa_por_ano_ranking.iloc[0]["Taxa de Evasão (%)"]
 #2_Faixa_Etaria_Conclusao
     st.info(
-        f"No trecho analisado, não foi identificada diferença significativa entre a média de presença dos alunos que permaneceram e daqueles que evadiram. Isso mostra que outros fatores podem ter exercido maior influência sobre a evasão acadêmica neste cenário específico."
+        "No trecho analisado, não foi identificada diferença significativa entre a média de presença dos alunos que permaneceram e daqueles que evadiram. Isso mostra que outros fatores podem ter exercido maior influência sobre a evasão acadêmica neste cenário específico."
     )
 
 st.divider()
